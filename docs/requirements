@@ -1,1 +1,44 @@
+# OpenMed v1 — Requirements
 
+## Objective
+
+Develop a low-cost, portable, 2-channel biomedical signal acquisition
+platform initially optimized for EMG research and signal analysis.
+
+## Functional Requirements
+
+FR-01: Acquire two differential EMG channels.
+FR-02: Provide analog amplification appropriate for low-amplitude biosignals.
+FR-03: Provide analog band-limiting before ADC conversion.
+FR-04: Digitize acquired signals at a sufficient sampling rate for EMG.
+FR-05: Transfer acquired data to a host computer.
+FR-06: Support real-time digital signal processing.
+FR-07: Calculate basic EMG features including RMS amplitude and signal envelope.
+FR-08: Operate from battery power for portable use.
+
+## Engineering Targets
+
+Sampling rate: >= 2 kS/s/channel
+Target EMG bandwidth: approximately 20–500 Hz
+Channels: 2
+PCB: 2-layer
+Target prototype BOM: <$50–$100
+Host interface: USB initially
+Future interface: BLE
+Future biosignals: ECG and PPG
+
+## Validation
+
+The system will be characterized using controlled electrical
+test signals before any biological signal acquisition is attempted.
+
+Measurements will include:
+
+- Gain
+- Frequency response
+- Noise
+- Input-referred noise
+- Common-mode rejection
+- ADC performance
+- Sampling integrity
+- Power consumption
