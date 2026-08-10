@@ -1,0 +1,18 @@
+PROJECT OPEN MED
+
+OpenMed v1 — Project Definition
+
+Working name: OpenMed
+Version: v1.0
+Primary function: Portable 2-channel EMG acquisition and analysis
+Future expansion: ECG → PPG → additional biosignals
+Target: Low-cost, battery-powered, custom-PCB research prototype
+
+MUSCLE -> Electrodes -> Input Protection -> Instrumentation Amplifier -> Analog Filtering (~20–500 Hz) -> ADC -> (SPI) -> Microcontroller (Filtering, RMS, Activation, Feature extraction) -> (USB/BLE) -> Python Dashboard
+Research:
+
+Electrode-Skin Interface & 3-Electrode Differential Measurement -
+https://www.ti.com/lit/an/sbaa160a/sbaa160a.pdf?ts=1786306601024 - 
+https://www.analog.com/en/resources/analog-dialogue/articles/ecg-front-end-design-simplified.html:
+The Analog Devices ECG front-end design article demonstrates how combining a single MicroConverter (like the ADuC842) with intelligent software filtering dramatically lowers hardware costs and PCB complexity for biosignal acquisition projects like OpenMed v1. By using assembly interrupts to oversample and accumulate readings over time, you can boost a cheaper 12-bit ADC into higher effective resolution, while offloading notch and band-pass filtering into C code to strip away bulky analog filtering stages. The architecture also provides a blueprint for active DC offset cancellation via an integrated DAC, common-mode noise rejection through driven reference circuits (OP97), and safe, inductorless dual-rail battery power using charge pumps (ADP3607/ADP3605)—offering a reconfigurable digital architecture that easily adapts from 2-channel EMG to ECG or PPG simply by adjusting software filter parameters.
+  
